@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #nueva-imagen {
+            width: 300px;
+            height: 300px;
+        }
+
+        #mensaje-final {
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #mensaje {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        #botones {
+            margin-top: 20px;
+            text-align: center; /* Centro los botones horizontalmente */
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 40px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #si {
+            background-color: #4CAF50; /* Verde */
+            transition: font-size 0.5s; /* Agregamos una transición para suavizar el cambio de tamaño */
+        }
+
+        #no {
+            background-color: #FF3333; /* Rojo */
+        }
+
+        #contenedor-final {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .corazones {
+            animation: animate__animated animate__heartBeat animate__slower infinite;
+        }
+
+        #reproductor-audio {
+            display: none;
+        }
+    </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const botonSi = document.getElementById('si');
+        const botonNo = document.getElementById('no');
+        const contenedorInicial = document.getElementById('contenedor-inicial');
+        const contenedorFinal = document.getElementById('contenedor-final');
+        const nuevaImagen = document.getElementById('nueva-imagen');
+        const mensajeFinal = document.getElementById('mensaje-final');
+        const reproductorAudio = document.getElementById('reproductor-audio');
+
+        const mensajes = [
+            "Jaja, graciosa :)",
+            "¿Segura?",
+            " 🙃🙃🙃🙃",
+            "¿SEGURA?",
+            "Pienselo bien...",
+            "Amor... 😔",
+            "¿SEGURISIMA? :)",
+            "No estoy jugando :)",
+            "Shingao... -_-",
+            "AMOR 😡 😡",
+            "Va, que conste...",
+            "AMOOOOOOOOOR!!!!!! 😡 😡"
+        ];
+
+        let indiceMensaje = 0;
+
+        botonNo.addEventListener('click', function() {
+            // Cambiamos el texto del botón "No" con cada clic
+            botonNo.innerText = mensajes[indiceMensaje];
+            
+            // Incrementamos el índice para obtener el siguiente mensaje en el próximo clic
+            indiceMensaje = (indiceMensaje + 1) % mensajes.length;
+
+            // Aumentamos el tamaño del botón "Sí"
+            botonSi.style.fontSize = (parseFloat(getComputedStyle(botonSi).fontSize) + 80) + 'px';
+        });
+
+        botonSi.addEventListener('click', function() {
+            // Ocultamos el contenedor inicial
+            contenedorInicial.style.display = 'none';
+
+            // Mostramos el contenedor final
+            contenedorFinal.style.display = 'flex';
+            // Agregamos la clase de animación de corazones
+            contenedorFinal.classList.add('animate__animated', 'animate__heartBeat', 'animate__slower', 'infinite');
+
+            // Mostramos el reproductor de audio y reproducimos la canción desde el segundo 8
+            reproductorAudio.style.display = 'block';
+            reproductorAudio.currentTime = 6.5; // Cambia 8 por el segundo deseado
+            reproductorAudio.play();
+
+            // Aquí puedes establecer el src de la nueva imagen
+            // Ejemplo: nuevaImagen.src = "ruta_de_la_nueva_imagen.jpg";
+        });
+    });
+</script>
+    <title>San Valentín</title>
+</head>
+<body>
+    <div id="contenedor-inicial">
+        <img src="https://i.pinimg.com/originals/1d/6b/f7/1d6bf7e7109cebc34297279c7a8cacb3.gif" alt="San Valentín">
+        <div id="mensaje">
+            ¿Quiere ser mi San Valentín? :3
+        </div>
+        <div id="botones">
+            <button id="si">Sí</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <div id="contenedor-final">
+        <img id="nueva-imagen" src="https://gifdb.com/images/high/love-cute-animated-cuddling-couple-jkx1huuf00c4q63c.gif" alt="Nueva Imagen">
+        <div id="mensaje-final">
+            ¡Yay! La quiero mucho!! ❣ ❣ ❣ ❣ ❣
+        </div>
+    </div>
+
+    <audio id="reproductor-audio" src="/y2mate.bz - best-of-me-bts-traducida-al-español.mp3" controls></audio>
+</body>
+</html>
