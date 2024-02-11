@@ -12,7 +12,26 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-image: url("https://images7.alphacoders.com/113/1137731.jpg");
+            background-size: cover;
         }
+
+        #grid-imagenes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Puedes ajustar el número de columnas según tus preferencias */
+            gap: 10px; /* Espacio entre las imágenes */
+            max-width: 800px;
+        }
+
+        #grid-imagenes img {
+            width: 100%;
+            height: auto;
+        }
+
+        audio {
+            margin-top: 20px;
+        }
+
 
         #nueva-imagen {
             width: 300px;
@@ -33,6 +52,8 @@
             margin-top: 20px;
             text-align: center;
             font-size: 40px;
+            color: white;
+            font-weight: bold;
         }
 
         #botones {
@@ -82,8 +103,7 @@
         const botonNo = document.getElementById('no');
         const contenedorInicial = document.getElementById('contenedor-inicial');
         const contenedorFinal = document.getElementById('contenedor-final');
-        const nuevaImagen = document.getElementById('nueva-imagen');
-        const mensajeFinal = document.getElementById('mensaje-final');
+        const gridImagenes = document.getElementById('grid-imagenes');        const mensajeFinal = document.getElementById('mensaje-final');
         const reproductorAudio = document.getElementById('reproductor-audio');
 
         const mensajes = [
@@ -137,7 +157,7 @@
 </head>
 <body>
     <div id="contenedor-inicial">
-        <img src="https://i.pinimg.com/originals/1d/6b/f7/1d6bf7e7109cebc34297279c7a8cacb3.gif" alt="San Valentín">
+        <img src="/Osito sin fondo.gif" alt="San Valentín">
         <div id="mensaje">
             ¿Quiere ser mi San Valentín? :3
         </div>
@@ -148,8 +168,21 @@
     </div>
 
     <div id="contenedor-final">
-        <img id="nueva-imagen" src="https://gifdb.com/images/high/love-cute-animated-cuddling-couple-jkx1huuf00c4q63c.gif" alt="Nueva Imagen">
-        <div id="mensaje-final">
+        <div id="grid-imagenes">
+            <img src="/Imagen 1.jpeg" alt="Imagen 1">
+            <img src="/Imagen 2.jpeg" alt="Imagen 2">
+            <img src="/Imagen 3.jpeg" alt="Imagen 2">
+            <img src="/Imagen 4.jpeg" alt="Imagen 2">
+            <img src="/Imagen 5.jpeg" alt="Imagen 2">
+            <img src="/Imagen 6.jpeg" alt="Imagen 2">
+            <img src="/Imagen 7.jpeg" alt="Imagen 2">
+            <img src="/Imagen 8.jpeg" alt="Imagen 2">
+            <img src="/Imagen 9.jpeg" alt="Imagen 2">
+            <img src="/Imagen 10.jpeg" alt="Imagen 2">
+            <img src="/Imagen 11.jpeg" alt="Imagen 2">
+            <!-- Repite este patrón para las 12 imágenes -->
+            <img src="/Imagen 12.jpeg" alt="Imagen 12">
+        </div>        <div id="mensaje-final">
             ¡Yay! La quiero mucho!! ❣ ❣ ❣ ❣ ❣
         </div>
     </div>
